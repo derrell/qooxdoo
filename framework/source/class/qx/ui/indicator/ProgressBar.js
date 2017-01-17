@@ -80,7 +80,8 @@ qx.Class.define("qx.ui.indicator.ProgressBar",
     appearance:
     {
       refine: true,
-      init: "progressbar"
+      init: "progressbar",
+      themeable: true
     },
 
     /** Maximum value of the progress bar */
