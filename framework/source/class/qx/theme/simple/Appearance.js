@@ -1798,7 +1798,9 @@ qx.Theme.define("qx.theme.simple.Appearance",
       {
         return {
           padding : [ 1, 2 ],
-          textColor : states.selected && !states.disabled ? "text-selected" : undefined
+          textColor : states.selected && !states.disabled
+                      ? "text-selected"
+                      : states.disable ? "text-disabled" : undefined
         };
       }
     },
