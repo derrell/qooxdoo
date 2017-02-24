@@ -773,8 +773,16 @@ qx.Class.define("qx.Promise", {
      */
     __onUnhandledRejection: function(e) {
       e.preventDefault();
-      qx.log.Logger.error(this, "Unhandled promise rejection: " + e.detail.reason.stack);
-      qx.event.GlobalError.handleError(e.detail.reason);
+      if (e && e.detail && e.detail.reason)
+      {
+        qx.log.Logger.error(this, "Unhandled promise rejection: " + e.detail.reason.stack);
+        qx.event.GlobalError.handleError(e.detail.reason);
+      }
+      else
+      {
+        qx.log.Logger.error(this, "Unhandled promise rejection, no reason available");
+        qx.event.GlobalError.handleError("unknown reason");
+      }
     },
     
     /**
